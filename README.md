@@ -1,7 +1,6 @@
 # Dynamic_Stack
 
-Author: Samuele Urbano
-Serial: I288376LYT556127JK382PPL
+Author: Samuele Urbano, Serial: I288376LYT556127JK382PPL
 
       Dynamic array LIFO queue implementation (Stack).
       
@@ -14,6 +13,4 @@ Serial: I288376LYT556127JK382PPL
       used to store the elements in the stack. As elements are added to a 
       Stack, its capacity grows automatically.
 
-Date: 2021-07-26
-Category: Collection
-Version: 1.1
+Date: 2021-07-26, Category: Collection, Version: 1.1
