@@ -1,6 +1,6 @@
 # Dynamic_Stack
 
-Author: Samuele Urbano, Serial: I288376LYT556127JK382PPL
+Author: Samuele Urbano                          Serial: I288376LYT556127JK382PPL
 
       Dynamic array LIFO queue implementation (Stack).
       
