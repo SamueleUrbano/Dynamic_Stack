@@ -57,7 +57,7 @@ public class Stack<E> implements Serializable {
      * 
      * @see this.grow()
      */
-    private int incrementalCapacity;
+    private int newStackCapacity;
 
     /**
      * The array that stores the elements of the Stack.
@@ -69,7 +69,7 @@ public class Stack<E> implements Serializable {
      */
     public Stack() {
         this.elementData = new Object [DEFAULT_CAPACITY];
-        this.incrementalCapacity = DEFAULT_CAPACITY;
+        this.newStackCapacity = DEFAULT_CAPACITY;
         this.init();
     }
 
@@ -82,11 +82,11 @@ public class Stack<E> implements Serializable {
     public Stack(int size) {
         if (size >= 0 && size <= DEFAULT_CAPACITY) {
             this.elementData = new Object [DEFAULT_CAPACITY];
-            this.incrementalCapacity = DEFAULT_CAPACITY;
+            this.newStackCapacity = DEFAULT_CAPACITY;
             this.init();
         } else if (size > DEFAULT_CAPACITY) {
             this.elementData = new Object [size];
-            this.incrementalCapacity = size;
+            this.newStackCapacity = size;
             this.init();
         } else {
             throw new IllegalArgumentException("Illegal size: " + size);
@@ -102,7 +102,7 @@ public class Stack<E> implements Serializable {
      * @return - true.
      */
     public boolean push(E e) {
-        if (this.pointer >= ((PERCENT_FOR_INCREMENT * this.incrementalCapacity) / 100)) {
+        if (this.pointer >= ((PERCENT_FOR_INCREMENT * this.newStackCapacity) / 100)) {
             this.grow();
             this.elementData [this.pointer] = (E)e;
             this.increment();
@@ -135,7 +135,7 @@ public class Stack<E> implements Serializable {
      * (set all the array positions to null)
      */
     public void clear() {
-        for (int i = 0; i < this.incrementalCapacity; i++) {
+        for (int i = 0; i < this.newStackCapacity; i++) {
             this.elementData [i] = null;
         }
         this.init();
@@ -191,8 +191,8 @@ public class Stack<E> implements Serializable {
      */
     private void grow() {
         Object [] elementDataCopy = this.elementData.clone();
-        this.incrementalCapacity += ((PERCENT_TO_INCREMENT * this.size) / 100);
-        this.elementData = new Object [incrementalCapacity];
+        this.newStackCapacity += ((PERCENT_TO_INCREMENT * this.size) / 100);
+        this.elementData = new Object [newStackCapacity];
 
         for (int i = 0; i < elementDataCopy.length; i++) {
             this.elementData [i] = elementDataCopy [i];
@@ -201,7 +201,7 @@ public class Stack<E> implements Serializable {
 
     @Override
     public String toString() {
-        String toString = "{ ";
+        String toString = "[ ";
 
         for (Object o : this.elementData) {
             if (o != null) {
@@ -210,6 +210,6 @@ public class Stack<E> implements Serializable {
                 break;
             }
         }
-        return toString.substring(0, toString.length() - 2) + " }";
+        return toString.substring(0, toString.length() - 2) + " ]";
     }
 }
