@@ -70,8 +70,7 @@ public class Stack<E> implements Serializable {
     public Stack() {
         this.elementData = new Object [DEFAULT_CAPACITY];
         this.incrementalCapacity = DEFAULT_CAPACITY;
-        this.pointer = 0;
-        this.size = this.pointer;
+        this.init();
     }
 
     /**
