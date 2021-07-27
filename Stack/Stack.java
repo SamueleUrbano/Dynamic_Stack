@@ -68,7 +68,7 @@ public class Stack<E> implements Serializable {
      * Constructs the stack with a default capacity (10 elements).
      */
     public Stack() {
-        this.elementData = new Object [DEFAULT_CAPACITY];
+        this.elementData = (E[]) new Object [DEFAULT_CAPACITY];
         this.newStackCapacity = DEFAULT_CAPACITY;
         this.init();
     }
@@ -81,11 +81,11 @@ public class Stack<E> implements Serializable {
      */
     public Stack(int size) {
         if (size >= 0 && size <= DEFAULT_CAPACITY) {
-            this.elementData = new Object [DEFAULT_CAPACITY];
+            this.elementData = (E[]) new Object [DEFAULT_CAPACITY];
             this.newStackCapacity = DEFAULT_CAPACITY;
             this.init();
         } else if (size > DEFAULT_CAPACITY) {
-            this.elementData = new Object [size];
+            this.elementData = (E[]) new Object [size];
             this.newStackCapacity = size;
             this.init();
         } else {
@@ -203,9 +203,9 @@ public class Stack<E> implements Serializable {
     public String toString() {
         String toString = "[ ";
 
-        for (Object o : this.elementData) {
-            if (o != null) {
-                toString += String.valueOf(o) + ", ";
+        for (E e : this.elementData) {
+            if (e != null) {
+                toString += String.valueOf(e) + ", ";
             } else {
                 break;
             }
