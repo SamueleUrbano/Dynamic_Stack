@@ -17,7 +17,7 @@ import java.io.Serializable;
  * 
  * @date 2021-07-17
  * @category Collection
- * @version 1.1
+ * @version 1.2
  */
 public class Stack<E> implements Serializable {
 
@@ -192,7 +192,7 @@ public class Stack<E> implements Serializable {
     private void grow() {
         Object [] elementDataCopy = this.elementData.clone();
         this.newStackCapacity += ((PERCENT_TO_INCREMENT * this.size) / 100);
-        this.elementData = new Object [newStackCapacity];
+        this.elementData = (E[]) new Object [newStackCapacity];
 
         for (int i = 0; i < elementDataCopy.length; i++) {
             this.elementData [i] = elementDataCopy [i];
@@ -201,9 +201,9 @@ public class Stack<E> implements Serializable {
 
     @Override
     public String toString() {
-        String toString = "[ ";
+        String toString = "Stack: [ ";
 
-        for (E e : this.elementData) {
+        for (E e : (E[]) this.elementData) {
             if (e != null) {
                 toString += String.valueOf(e) + ", ";
             } else {
