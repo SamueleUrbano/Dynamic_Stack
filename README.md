@@ -1,6 +1,12 @@
 # Dynamic_Stack
 
-Author: Samuele Urbano                          Serial: I288376LYT556127JK382PPL
+Info:
+
+      Author: Samuele Urbano
+      Serial: I288376LYT556127JK382PPL
+
+
+Description:
 
       Dynamic array LIFO queue implementation (Stack).
       
@@ -13,4 +19,13 @@ Author: Samuele Urbano                          Serial: I288376LYT556127JK382PPL
       used to store the elements in the stack. As elements are added to a 
       Stack, its capacity grows automatically.
 
-Date: 2021-07-26, Category: Collection, Version: 1.2
+
+More info:
+
+      Date: 2021-07-26
+      Category: Collections
+      Version: 1.2
+      
+
+Best practice:
+      Compile the .java file before the use.
